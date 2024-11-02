@@ -1,0 +1,482 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-box {
+    background-color: rgba(0, 123, 255, 0.8);
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.nav-box:hover {
+    background-color: rgba(0, 123, 255, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.logo h1 {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+}
+
+.logo h1:hover {
+    color: #e0e0e0;
+}
+
+.navbar {
+    text-align: center;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pages a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    position: relative;
+}
+
+.pages a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.pages a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.pages a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+.bg-image {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    transition: filter 0.3s ease;
+}
+
+.bg-image.img1 {
+    background-image: url('/images/yala.jpg');
+}
+
+.bg-image.img2 {
+    background-image: url('/images/beach2.jpg');
+}
+
+.bg-image.img3 {
+    background-image: url('/images/anuradestination.jpg');
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.img-overlay:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transition: transform 0.5s;
+}
+
+.img1content, .img2content, .img3content {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: transform 0.3s ease,color 0.3s ease;
+}
+
+.bg-image:hover .img1content,
+.bg-image:hover .img2content,
+.bg-image:hover .img3content {
+    transform: scale(1.02);
+    color: #ffffff;
+}
+
+.img1des, .img3des {
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    padding: 5px;
+}
+
+.img2des {
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.card-1, .card-3 {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-right: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+    width: 80%;
+    max-width: 300px;
+    z-index: 1;
+}
+
+.card-2 {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: 150px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: slideIn 1s forwards;
+    width: 80%;
+    max-width: 300px;
+    z-index: 1;
+}
+
+.card:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-button {
+    display: inline-block;
+    margin-top: 70px;
+    padding: 8px 15px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.card-button:hover {
+    background: #0069D9;
+}
+
+.bg-image:hover {
+    filter: brightness(1);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.beach-footer {
+    background-color: rgba(0, 123, 255, 1);
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: left;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info, .footer-links, .footer-social {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-info h2, .footer-links h2, .footer-social h2 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #424242;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.card-container-1 {
+    justify-content: center;
+    margin-left: 200px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-right: 60px;
+}
+
+.card-container-1 h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+}
+
+.card-container-1 p {
+    font-size: 30px;
+}
+
+.video-card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: -600px;
+    margin-bottom: 400px;
+    z-index: 5;
+    position: relative;
+}
+
+.video-card-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.video-card {
+    perspective: 1000px;
+}
+
+.flip {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition: transform 0.6s;
+}
+
+.flip:hover {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.front {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.back {
+    background: rgba(255, 255, 255, 0.8);
+    color: rgb(60, 60, 60);
+    transform: rotateY(180deg);
+}
+
+.back h3, .front h3 {
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .nav-box {
+        padding: 10px;
+    }
+    .logo img {
+        height: 40px;
+    }
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+    .pages {
+        flex-wrap: wrap;
+    }
+    .pages a {
+        padding: 5px 10px;
+    }
+    .bg-image {
+        height: 50vh;
+    }
+    .card {
+        margin: 10px;
+    }
+    .nav-box {
+        padding: 10px;
+    }
+    .logo img {
+        height: 40px;
+    }
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    .pages {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .pages a {
+        padding: 8px 10px;
+    }
+    .card-container-1 {
+        margin: 20px;
+        text-align: center;
+    }
+    .video-card-container {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .card-1, .card-2, .card-3 {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-box {
+        padding: 5px;
+    }
+    .logo img {
+        height: 30px;
+    }
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    .pages {
+        flex-direction: column;
+    }
+    .pages a {
+        padding: 5px;
+    }
+    .bg-image {
+        height: 30vh;
+    }
+    .card-container-1 h1 {
+        font-size: 28px;
+    }
+    .card-container-1 p {
+        font-size: 20px;
+    }
+    .video-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
